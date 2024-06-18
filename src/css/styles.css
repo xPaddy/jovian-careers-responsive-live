@@ -1,14 +1,19 @@
+/* Base styles (extra small devices - mobile) */
+
+html {
+   font-size: 14px;
+}
+
 body {
    margin: 0;
    padding: 0;
-   font-family: 'Roboto', sans-serif;
-   font-size: 1rem;
-   font-size: 16px;
-   color: #404040;
+   font-family: "Roboto", sans-serif;
+   color: #444;
+   font-size: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-   font-family: Inter, sans-serif;
+   font-family: "Inter", sans-serif;
    font-weight: 600;
    color: #222;
 }
@@ -20,44 +25,44 @@ h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1rem; }
 
-a {
-   text-decoration: none;
-   color: #3b82f6;
-}
-
-a:hover, a:focus  {
-   color: #1d4ed8;
-}
-
 #navbar {
    padding: 8px;
    margin: 0;
 }
 
-#logo {
+#logo, #logo-with-text {
    height: 30px;
+}
+
+#logo-with-text {
+   display: none;
 }
 
 #banner {
    object-fit: cover;
+   height: 150px;
    width: 100%;
 }
 
 #about {
    display: flex;
-   max-width: 800px;
+   flex-direction: column;
+   max-width: 500px;
    margin: 0 auto;
    padding: 8px;
 }
 
+h1, h2 {
+   text-align: center;
+   margin: 12px 0;
+}
+
 #description {
-   width: 50%;
-   padding: 0 8px;
    font-size: 1.25rem;
 }
 
 #team {
-   width: 50%;
+   width: 100%;
 }
 
 #team-img {
@@ -65,57 +70,36 @@ a:hover, a:focus  {
    width: 100%;
 }
 
-h1 {
-   text-align: center;
-}
-
-#banner {
-   width: 100%;
-}
-
-h2 {
-   text-align: center;
-}
-
 #jobs {
-   max-width: 800px;
+   max-width: 500px;
    margin: 0 auto;
-   padding: 0 8px;
+   padding: 8px;
 }
 
 #jobs-table {
-   width: 100%;
-   border: 1px solid gray;
-   border-collapse: collapse;
+   display: none;
 }
 
-#jobs-table tr:nth-child(odd) {
-   background-color: #EEF2FF;
-}
-
-.jobs-header-row th {
-   border: 1px solid gray;
+.job {
+   border: 1px solid #ddd;
+   margin-top: 8px;
+   border-radius: 5px;
    padding: 8px;
-   background-color: #dbeafe;
+}
+
+.job-title {
+   font-size: 1.25rem;
+   font-weight: 500;
    color: #222;
 }
 
-.jobs-data-row td {
-   border: 1px solid gray;
-   padding: 8px;
-}
-
-h3 {
-   margin-bottom: 4px;
-   margin-top: 0px;
-}
-
-.apply {
-   float: right;
+.job-detail {
+   margin-top: 4px;
+   color: #555;
 }
 
 #application {
-   max-width: 800px;
+   max-width: 500px;
    margin: 0 auto;
    padding: 0 8px;
 }
@@ -125,7 +109,6 @@ h3 {
 }
 
 .form-group textarea {
-   width: 80%;
    font-family: 'Roboto', sans-serif;
 }
 
@@ -134,11 +117,12 @@ h3 {
    height: 16px;
 }
 
-#application-form label {
+.form-group label {
    font-weight: 600;
 }
 
-#application-form input, select, textarea {
+.form-group input, select, textarea {
+   width: 90%;
    padding: 8px;
    font-size: 1.25rem;
    margin-top: 4px;
@@ -156,6 +140,15 @@ h3 {
    border-radius: 5px;
 }
 
+a {
+   text-decoration: none;
+   color: #3b82f6;
+}
+
+a:hover, a:focus {
+   color: #1d4ed8;
+}
+
 #footer {
    background-color: #fafafa;
    padding: 8px;
@@ -165,14 +158,125 @@ h3 {
 
 #footer-links {
    list-style: none;
+   padding-left: 0;
 }
 
 #footer-links li {
-   display: inline;
-   margin: 0 16px;
+   margin: 8px 16px;
 }
 
 .copyright {
    color: #71717a;
    font-size: 0.875rem;
+}
+
+
+/* Small devices (tablets) */
+@media screen and (min-width: 576px) {
+   html {
+      font-size: 16px;
+   }
+
+   #logo-with-text {
+      display: block;
+   }
+
+   #logo {
+      display: none;
+   }
+
+   #banner {
+      height: 200px;
+   }
+
+   h1, h2 {
+      margin: 16px 0;
+   }
+
+   .form-group input, select {
+      width: auto;
+   }
+
+   .form-group textarea {
+      width: 80%;
+   }
+
+   #footer-links li {
+      display: inline;
+   }
+}
+
+/* Medium devices (laptops) */
+@media screen and (min-width: 768px) {
+   #banner {
+      height: 250px;
+   }
+
+   h1,h2 {
+      margin: 20px 0;
+   }
+
+   #about {
+      max-width: 800px;
+      flex-direction: row;
+   }
+
+   #description {
+      width: 50%;
+      padding-right: 8px;
+   }
+
+   #team {
+      width: 50%;
+   }
+
+   #jobs {
+      max-width: 800px;
+   }
+
+   #jobs-list {
+      display: none;
+   }
+
+   #jobs-table {
+      display: table;
+      width: 100%;
+      border: 1px solid gray;
+      border-collapse: collapse;
+   }
+
+   .jobs-header-row th {
+      border: 1px solid gray;
+      padding: 8px;
+      background-color: #bfdbfe;
+      text-align: center;
+      color: #222;
+   }
+
+   .jobs-data-row td {
+      border: 1px solid gray;
+      padding: 8px;
+   }
+
+   #jobs-table tr:nth-child(odd) {
+      background-color: #eff6ff;
+   }
+
+   #application {
+      max-width: 800px;
+   }
+}
+
+/* Large devices (desktops) */
+@media screen and (min-width: 992px) {
+   #banner {
+      height: 280px;
+   }   
+}
+
+/* Extra large devices (large desktops) */
+@media screen and (min-width: 1200px) {
+   #banner {
+      height: 320px
+   }
 }
